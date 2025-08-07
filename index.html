@@ -1,0 +1,349 @@
+import React from "react";
+
+// ======== CONFIG ========
+const CLUB_NAME = "Budapest Kubb Club"; // change if you like
+const CITY = "Budapest";
+const PRIMARY_PARK = "Városliget (City Park)"; // or Margaret Island, etc.
+const CONTACT_EMAIL = "hello@budapestkubb.club"; // set your real email or form link
+const INSTAGRAM_URL = "https://instagram.com/"; // fill in
+const FACEBOOK_URL = "https://facebook.com/"; // fill in
+const TIKTOK_URL = "https://tiktok.com/@"; // fill in
+const WHATSAPP_URL = "https://chat.whatsapp.com/"; // optional community link
+const MEETUP_URL = "https://www.meetup.com/"; // optional
+
+// YouTube video IDs (change to your favorites)
+const YT_INTRO_1 = "XfWt0-_MNsY"; // Kubb United – How to Play
+const YT_INTRO_2 = "ZisjpAlarhM"; // concise rules video
+
+// Image gallery (replace with your own links)
+const GALLERY = [
+  {
+    src: "https://images.unsplash.com/photo-1520975922284-9e0ce8270787?q=80&w=1200&auto=format&fit=crop",
+    alt: "Sunny park meetup",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop",
+    alt: "Friends laughing while playing",
+  },
+  {
+    src: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop",
+    alt: "Casual tournament vibe",
+  },
+];
+
+// Upcoming events (edit freely)
+const EVENTS = [
+  {
+    title: "Launch Game Day",
+    date: "Sun, Sep 7, 15:00",
+    location: PRIMARY_PARK,
+    map: "https://maps.google.com/?q=V%C3%A1rosliget%2C%20Budapest",
+    blurb:
+      "Open session for all levels. We teach rules in 5 minutes. Free and friendly!",
+    rsvp: MEETUP_URL,
+  },
+  {
+    title: "Picnic Kubb",
+    date: "Sun, Sep 14, 16:30",
+    location: PRIMARY_PARK,
+    map: "https://maps.google.com/?q=V%C3%A1rosliget%2C%20Budapest",
+    blurb: "Bring snacks, we bring kubb sets. No fees, just vibes.",
+    rsvp: FACEBOOK_URL,
+  },
+  {
+    title: "Mini Fun Tournament",
+    date: "Sun, Sep 21, 15:30",
+    location: PRIMARY_PARK,
+    map: "https://maps.google.com/?q=V%C3%A1rosliget%2C%20Budapest",
+    blurb: "Random mixed teams, silly prize for the winners.",
+    rsvp: INSTAGRAM_URL,
+  },
+];
+
+// Helpful rule links
+const RULE_LINKS = [
+  {
+    label: "World Championship Rules (overview)",
+    href: "https://www.kubb.world/game-rules",
+  },
+  {
+    label: "U.S. National Kubb Championship Rules (PDF)",
+    href: "https://publicwebuploads.uwec.edu/documents/Kubb-Rules.pdf",
+  },
+  {
+    label: "Kubb World Championship – Rules page",
+    href: "https://www.kubbvm.com/en/about-the-kubb-world-championship/rules-in-the-wc/",
+  },
+];
+
+// ======== UI ========
+export default function KubbLanding() {
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-white to-slate-50 text-slate-800">
+      <Header />
+      <Hero />
+      <AboutKubb />
+      <HowToPlay />
+      <Videos />
+      <Events />
+      <Gallery />
+      <JoinUs />
+      <Footer />
+    </div>
+  );
+}
+
+function Header() {
+  return (
+    <header className="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
+      <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="#top" className="font-bold text-xl">{CLUB_NAME}</a>
+        <nav className="hidden md:flex gap-6 text-sm">
+          <a href="#about" className="hover:text-slate-900">About</a>
+          <a href="#rules" className="hover:text-slate-900">Rules</a>
+          <a href="#videos" className="hover:text-slate-900">Videos</a>
+          <a href="#events" className="hover:text-slate-900">Events</a>
+          <a href="#gallery" className="hover:text-slate-900">Photos</a>
+          <a href="#join" className="hover:text-slate-900">Join</a>
+        </nav>
+        <div className="flex gap-3">
+          <a href={INSTAGRAM_URL} aria-label="Instagram" className="text-sm underline underline-offset-4">IG</a>
+          <a href={FACEBOOK_URL} aria-label="Facebook" className="text-sm underline underline-offset-4">FB</a>
+          <a href={TIKTOK_URL} aria-label="TikTok" className="text-sm underline underline-offset-4">TT</a>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+function Hero() {
+  return (
+    <section className="max-w-6xl mx-auto px-4 pt-12 pb-10 md:pt-16">
+      <div className="grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight">
+            Throw sticks. Make friends. Repeat.
+          </h1>
+          <p className="mt-4 text-lg text-slate-600">
+            {CLUB_NAME} is a casual, free-to-join kubb community in {CITY}. We meet regularly in {PRIMARY_PARK}. All levels welcome — we teach the rules in 5 minutes.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a href="#events" className="px-5 py-3 rounded-2xl shadow bg-slate-900 text-white font-semibold hover:opacity-90">See upcoming events</a>
+            <a href="#rules" className="px-5 py-3 rounded-2xl shadow bg-white border font-semibold hover:bg-slate-50">What is kubb?</a>
+          </div>
+        </div>
+        <div className="relative">
+          <div className="aspect-video rounded-2xl overflow-hidden shadow-lg">
+            <img
+              src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1600&auto=format&fit=crop"
+              alt="People playing lawn games in the park"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function AboutKubb() {
+  return (
+    <section id="about" className="max-w-6xl mx-auto px-4 py-12">
+      <div className="grid md:grid-cols-2 gap-10 items-start">
+        <div>
+          <h2 className="text-3xl font-bold">What’s kubb?</h2>
+          <p className="mt-4 text-slate-700">
+            Kubb is a friendly outdoor game from Sweden — imagine bowling, horseshoes, and strategy had a picnic. Two teams throw wooden batons to knock over blocks (kubbs) and finally the king.
+          </p>
+          <p className="mt-3 text-slate-700">
+            Our club is <strong>fun-first</strong>: social play, fresh air, and good company. If we get competitive later, awesome — for now, we just play.
+          </p>
+          <ul className="mt-4 list-disc pl-5 text-slate-700 space-y-2">
+            <li>All ages & skill levels welcome</li>
+            <li>Free to join — we provide equipment</li>
+            <li>Drop in anytime, or bring friends</li>
+          </ul>
+        </div>
+        <div className="bg-white border rounded-2xl p-6 shadow-sm">
+          <h3 className="text-xl font-semibold">Quick facts</h3>
+          <dl className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
+            <div>
+              <dt className="text-slate-500">Game time</dt>
+              <dd className="font-medium">10–40 minutes</dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Players</dt>
+              <dd className="font-medium">2–12 (best: 4–6)</dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Field size</dt>
+              <dd className="font-medium">~5×8 m (casual is flexible)</dd>
+            </div>
+            <div>
+              <dt className="text-slate-500">Vibe</dt>
+              <dd className="font-medium">Relaxed & welcoming</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function HowToPlay() {
+  return (
+    <section id="rules" className="bg-white border-y">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <h2 className="text-3xl font-bold">Rules & helpful links</h2>
+        <p className="mt-3 text-slate-700 max-w-3xl">
+          Learn in minutes at a meetup, or explore the official rules below. For casual play we keep it simple — knock down the kubbs before the king, and have fun.
+        </p>
+        <div className="mt-6 grid md:grid-cols-2 gap-6">
+          <ol className="bg-slate-50 rounded-2xl p-6 space-y-3 text-slate-700">
+            <li><strong>1)</strong> Set up two baselines with five kubbs each and the king in the center.</li>
+            <li><strong>2)</strong> Teams throw six batons from their baseline to knock over the opponent’s kubbs.</li>
+            <li><strong>3)</strong> Fallen kubbs are thrown into the opponent’s half and stood up — these must be cleared first.</li>
+            <li><strong>4)</strong> When all field/base kubbs are down, a team may knock over the king to win.</li>
+          </ol>
+          <div className="bg-slate-50 rounded-2xl p-6">
+            <h3 className="font-semibold">Official resources</h3>
+            <ul className="mt-3 space-y-2">
+              {RULE_LINKS.map((r) => (
+                <li key={r.href}>
+                  <a className="underline underline-offset-4" href={r.href} target="_blank" rel="noreferrer">
+                    {r.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Videos() {
+  return (
+    <section id="videos" className="max-w-6xl mx-auto px-4 py-12">
+      <h2 className="text-3xl font-bold">Watch & learn</h2>
+      <p className="mt-3 text-slate-700">Two short clips that explain kubb quickly — great for newcomers.</p>
+      <div className="mt-6 grid md:grid-cols-2 gap-6">
+        <YouTube id={YT_INTRO_1} title="How to Play Kubb – Kubb United" />
+        <YouTube id={YT_INTRO_2} title="Kubb Rules – Quick Guide" />
+      </div>
+    </section>
+  );
+}
+
+function YouTube({ id, title }: { id: string; title: string }) {
+  return (
+    <div className="aspect-video rounded-2xl overflow-hidden shadow bg-black">
+      <iframe
+        className="w-full h-full"
+        src={`https://www.youtube.com/embed/${id}`}
+        title={title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerPolicy="strict-origin-when-cross-origin"
+        allowFullScreen
+      />
+    </div>
+  );
+}
+
+function Events() {
+  return (
+    <section id="events" className="bg-white border-y">
+      <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="flex items-end justify-between gap-4 flex-wrap">
+          <h2 className="text-3xl font-bold">Upcoming events</h2>
+          <a href={MEETUP_URL} className="text-sm underline underline-offset-4">More & RSVP →</a>
+        </div>
+        <div className="mt-6 grid md:grid-cols-3 gap-6">
+          {EVENTS.map((e) => (
+            <article key={e.title} className="rounded-2xl border p-5 shadow-sm bg-slate-50">
+              <h3 className="font-semibold text-lg">{e.title}</h3>
+              <p className="mt-1 text-sm text-slate-600">{e.date}</p>
+              <p className="mt-1 text-sm text-slate-600">📍 {e.location}</p>
+              <p className="mt-3 text-slate-700 text-sm">{e.blurb}</p>
+              <div className="mt-4 flex gap-3">
+                <a href={e.map} className="text-sm underline underline-offset-4">Map</a>
+                <a href={e.rsvp} className="text-sm underline underline-offset-4">Details</a>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Gallery() {
+  return (
+    <section id="gallery" className="max-w-6xl mx-auto px-4 py-12">
+      <h2 className="text-3xl font-bold">Photos</h2>
+      <p className="mt-3 text-slate-700">A peek at the vibe. Replace these with shots from your meetups.</p>
+      <div className="mt-6 grid md:grid-cols-3 gap-6">
+        {GALLERY.map((g) => (
+          <figure key={g.src} className="rounded-2xl overflow-hidden shadow">
+            <img src={g.src} alt={g.alt} className="w-full h-60 object-cover" />
+          </figure>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+function JoinUs() {
+  return (
+    <section id="join" className="bg-slate-900 text-white">
+      <div className="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 className="text-3xl font-bold">Join the {CLUB_NAME}</h2>
+          <p className="mt-3 text-slate-200">
+            Drop in to an event, or follow us to get updates and photos. No fees, no commitment—just play.
+          </p>
+          <ul className="mt-6 grid grid-cols-2 gap-3 max-w-md">
+            <li><a className="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href={FACEBOOK_URL}>Facebook</a></li>
+            <li><a className="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href={INSTAGRAM_URL}>Instagram</a></li>
+            <li><a className="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href={TIKTOK_URL}>TikTok</a></li>
+            <li><a className="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href={MEETUP_URL}>Meetup</a></li>
+            {WHATSAPP_URL && (
+              <li className="col-span-2"><a className="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href={WHATSAPP_URL}>Join our WhatsApp group</a></li>
+            )}
+          </ul>
+        </div>
+        <div className="bg-white/10 rounded-2xl p-6">
+          <h3 className="font-semibold">Contact</h3>
+          <p className="mt-2 text-slate-200 text-sm">
+            Questions, ideas, want to collaborate? Email us at
+            {" "}
+            <a className="underline" href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+          </p>
+          <h3 className="mt-6 font-semibold">FAQ</h3>
+          <ul className="mt-2 text-sm text-slate-200 space-y-2">
+            <li><strong>Do I need to bring anything?</strong> Nope — we provide kubb sets. Water and a snack are nice.</li>
+            <li><strong>Can kids join?</strong> Yes! We adjust distances for younger players.</li>
+            <li><strong>Never played?</strong> Perfect. We explain and get you playing in minutes.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="border-t bg-white">
+      <div className="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
+        <p>© {new Date().getFullYear()} {CLUB_NAME}. Built with ❤️ for community fun.</p>
+        <div className="flex gap-4">
+          <a href="#about" className="hover:text-slate-900">About</a>
+          <a href="#events" className="hover:text-slate-900">Events</a>
+          <a href="#join" className="hover:text-slate-900">Join</a>
+        </div>
+      </div>
+    </footer>
+  );
+}
