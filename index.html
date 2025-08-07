@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Budapest Kubb Klub</title>
-  <meta name="description" content="Budapest Kubb Klub – baráti, ingyenes kubb közösség a Múzeumkertben. HU/EN/SV." />
+  <meta name="description" content="Budapest Kubb Klub – baráti, ingyenes kubb közösség. HU/EN/SV." />
   <meta property="og:title" content="Budapest Kubb Klub" />
-  <meta property="og:description" content="Dobd a botot. Szerezz barátokat. Ismételd. Ingyenes kubb a Múzeumkertben." />
+  <meta property="og:description" content="Dobd a botot. Szerezz barátokat. Ismételd." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0f172a" />
 
@@ -24,9 +24,9 @@
       <div class="font-bold text-xl">Budapest Kubb Klub</div>
       <nav class="hidden md:flex gap-6 text-sm">
         <a href="#about" data-i18n="nav.about" class="hover:text-slate-900">Bemutatkozás</a>
+        <a href="#events" data-i18n="nav.events" class="hover:text-slate-900">Események</a>
         <a href="#rules" data-i18n="nav.rules" class="hover:text-slate-900">Szabályok</a>
         <a href="#videos" data-i18n="nav.videos" class="hover:text-slate-900">Videók</a>
-        <a href="#events" data-i18n="nav.events" class="hover:text-slate-900">Események</a>
         <a href="#gallery" data-i18n="nav.photos" class="hover:text-slate-900">Képek</a>
         <a href="#join" data-i18n="nav.join" class="hover:text-slate-900">Csatlakozz</a>
       </nav>
@@ -43,8 +43,8 @@
     <section class="max-w-6xl mx-auto px-4 pt-12 pb-10 md:pt-16">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight" data-i18n="hero.title">Dobd a botot. Szerezz barátokat. Ismételd.</h1>
-          <p class="mt-4 text-lg text-slate-600" data-i18n="hero.blurb">A Budapest Kubb Klub egy kötetlen, ingyenes kubb közösség Budapesten. Rendszeresen találkozunk a Múzeumkertben (Múzeum körút, Bródy Sándor utca közelében). Minden szintet várunk — a szabályokat 5 perc alatt elmagyarázzuk.</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight" data-i18n="hero.title">Szeretünk kubbozni. Tesztelem a ChatGPT5-öt. A meghirdetett események valósak. </h1>
+          <p class="mt-4 text-lg text-slate-600" data-i18n="hero.blurb">A Budapest Kubb Klub egy kötetlen, ingyenes kubb közösség Budapesten. Rendszeresen találkozunk parkokban (Múzeumkertben, Margitsziget, Bikás park). Minden szintet várunk — a szabályokat 5 perc alatt elmagyarázzuk.</p>
           <div class="mt-6 flex flex-wrap gap-3">
             <a href="#events" class="px-5 py-3 rounded-2xl card bg-slate-900 text-white font-semibold hover:opacity-90" data-i18n="hero.ctaEvents">Közelgő események</a>
             <a href="#rules" class="px-5 py-3 rounded-2xl card bg-white border font-semibold hover:bg-slate-50" data-i18n="hero.ctaRules">Mi az a kubb?</a>
@@ -58,6 +58,16 @@
       </div>
     </section>
 
+    <!-- Events -->
+    <section id="events" class="bg-white border-y">
+      <div class="max-w-6xl mx-auto px-4 py-12">
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+          <h2 class="text-3xl font-bold" data-i18n="events.heading">Közelgő események</h2>
+        </div>
+        <div class="mt-6 grid md:grid-cols-3 gap-6" id="events-container"></div>
+      </div>
+    </section>
+    
     <!-- About -->
     <section id="about" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid md:grid-cols-2 gap-10 items-start">
@@ -84,7 +94,7 @@
             </div>
             <div>
               <dt class="text-slate-500">Field size / Pálya / Planstorlek</dt>
-              <dd class="font-medium" data-i18n="about.facts.field">~5×8 m (rugalmas, baráti játékhoz)</dd>
+              <dd class="font-medium" data-i18n="about.facts.field">5m × 8m</dd>
             </div>
             <div>
               <dt class="text-slate-500">Vibe / Hangulat / Känsla</dt>
@@ -105,13 +115,12 @@
             <li><strong>1)</strong> <span data-i18n="rules.steps.0">Két alapvonalon 5–5 kubb, középen a király.</span></li>
             <li><strong>2)</strong> <span data-i18n="rules.steps.1">A csapatok hat bottal dobnak az alapvonalról, cél a másik kubbjainak ledöntése.</span></li>
             <li><strong>3)</strong> <span data-i18n="rules.steps.2">A ledőlt kubbokat az ellenfél térfelébe dobjuk és felállítjuk — ezeket kell először kiütni.</span></li>
-            <li><strong>4)</strong> <span data-i18n="rules.steps.3">Ha minden kubb lent, jöhet a király — aki ledönti, nyer.</span></li>
+            <li><strong>4)</strong> <span data-i18n="rules.steps.3">Ha minden kubb lent van, jöhet a király — aki ledönti, nyer.</span></li>
           </ol>
           <div class="bg-slate-50 rounded-2xl p-6">
             <h3 class="font-semibold" data-i18n="rules.official">Hivatalos források</h3>
             <ul class="mt-3 space-y-2">
-              <li><a class="underline underline-offset-4" href="https://www.kubb.world/game-rules" target="_blank" rel="noreferrer" data-i18n="ruleLinks.0">Világbajnokság szabályai (áttekintés)</a></li>
-              <li><a class="underline underline-offset-4" href="https://publicwebuploads.uwec.edu/documents/Kubb-Rules.pdf" target="_blank" rel="noreferrer" data-i18n="ruleLinks.1">Amerikai Kubb Bajnokság szabályai (PDF)</a></li>
+              <li><a class="underline underline-offset-4" href="https://kubbjatek.hu/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.0">Kubb szabályai</a></li>
               <li><a class="underline underline-offset-4" href="https://www.kubbvm.com/en/about-the-kubb-world-championship/rules-in-the-wc/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.2">Kubb VB – Szabályok</a></li>
             </ul>
           </div>
@@ -122,31 +131,21 @@
     <!-- Videos -->
     <section id="videos" class="max-w-6xl mx-auto px-4 py-12">
       <h2 class="text-3xl font-bold" data-i18n="videos.heading">Nézd meg röviden</h2>
-      <p class="mt-3 text-slate-700" data-i18n="videos.intro">Két rövid videó, kezdőknek is szuper.</p>
+      <p class="mt-3 text-slate-700" data-i18n="videos.intro">Két rövid videó, egy a szabályokról, egy meg a vb-döntőről.</p>
       <div class="mt-6 grid md:grid-cols-2 gap-6">
         <div class="aspect-video rounded-2xl overflow-hidden card bg-black">
           <iframe class="w-full h-full" src="https://www.youtube.com/embed/XfWt0-_MNsY" title="How to Play Kubb – Kubb United" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         <div class="aspect-video rounded-2xl overflow-hidden card bg-black">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/ZisjpAlarhM" title="Kubb Rules – Quick Guide" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          <iframe class="w-full h-full" src="https://www.youtube.com/watch?v=Bofhj1sROxE" title="Kubb World Championship finals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
-      </div>
-    </section>
-
-    <!-- Events -->
-    <section id="events" class="bg-white border-y">
-      <div class="max-w-6xl mx-auto px-4 py-12">
-        <div class="flex items-end justify-between gap-4 flex-wrap">
-          <h2 class="text-3xl font-bold" data-i18n="events.heading">Közelgő események</h2>
-        </div>
-        <div class="mt-6 grid md:grid-cols-3 gap-6" id="events-container"></div>
       </div>
     </section>
 
     <!-- Gallery -->
     <section id="gallery" class="max-w-6xl mx-auto px-4 py-12">
       <h2 class="text-3xl font-bold" data-i18n="photos.heading">Képek</h2>
-      <p class="mt-3 text-slate-700" data-i18n="photos.intro">Hangulatképek — cseréld saját fotókra.</p>
+      <p class="mt-3 text-slate-700" data-i18n="photos.intro">Hangulatképek — hamarosan.</p>
       <div class="mt-6 grid md:grid-cols-3 gap-6">
         <figure class="rounded-2xl overflow-hidden card"><img src="https://images.unsplash.com/photo-1520975922284-9e0ce8270787?q=80&w=1200&auto=format&fit=crop" alt="Napos parkbeli találkozó" data-i18n-attr="alt:gallery.alt0" class="w-full h-60 object-cover"/></figure>
         <figure class="rounded-2xl overflow-hidden card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Barátok nevetnek játék közben" data-i18n-attr="alt:gallery.alt1" class="w-full h-60 object-cover"/></figure>
@@ -175,7 +174,7 @@
           <h3 class="mt-6 font-semibold" data-i18n="join.faq">GYIK</h3>
           <ul class="mt-2 text-sm text-slate-200 space-y-2">
             <li><strong data-i18n="join.faqItems.0.q">Kell hozni valamit?</strong> <span data-i18n="join.faqItems.0.a">Nem — a készleteket mi biztosítjuk. Víz és egy nasi jól jön.</span></li>
-            <li><strong data-i18n="join.faqItems.1.q">Gyerekek jöhetnek?</strong> <span data-i18n="join.faqItems.1.a">Igen! A távolságokat igazítjuk.</span></li>
+            <li><strong data-i18n="join.faqItems.1.q">Gyerekek jöhetnek?</strong> <span data-i18n="join.faqItems.1.a">A játék 10 éves kor felett ajánlott.</span></li>
             <li><strong data-i18n="join.faqItems.2.q">Még sosem játszottam.</strong> <span data-i18n="join.faqItems.2.a">Szuper! Pár perc és már játszol is.</span></li>
           </ul>
         </div>
