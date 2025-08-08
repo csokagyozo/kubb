@@ -119,7 +119,7 @@
             <h3 class="font-semibold" data-i18n="rules.official">Hivatalos források</h3>
             <ul class="mt-3 space-y-2">
               <li><a class="underline underline-offset-4" href="https://kubbjatek.hu/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.0">Kubb szabályai</a></li>
-              <li><a class="underline underline-offset-4" href="https://www.kubbvm.com/en/about-the-kubb-world-championship/rules-in-the-wc/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.2">Kubb VB – Szabályok</a></li>
+              <li><a class="underline underline-offset-4" href="https://www.kubbvm.com/en/about-the-kubb-world-championship/rules-in-the-wc/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.1">Kubb VB – Szabályok</a></li>
             </ul>
           </div>
         </div>
@@ -195,8 +195,8 @@
     // ===== Data =====
     const EVENTS = [
       {
-        title: { en: "Launch Game Day", hu: "Indító Játéknap", sv: "Lanseringsdag" },
-        date:  { en: "Sun, Sep 7, 15:00", hu: "Szept. 7., vasárnap, 15:00", sv: "Sön 7 sep, 15:00" },
+        title: { hu: "Indító Játéknap | Lanseringsdag"},
+        date:  { hu: "Augusztus 8., péntek, 16:00"},
         location: "Múzeumkert (Múzeum körút, Bródy Sándor utca közelében)",
         map: "https://maps.google.com/?q=Magyar%20Nemzeti%20M%C3%BAzeum%2C%20M%C3%BAzeum%20k%C3%B6r%C3%BAt%2C%20Budapest",
         blurb: {
@@ -209,52 +209,6 @@
     ];
 
     const I18N = {
-      en: {
-        nav: { about: "About", rules: "Rules", videos: "Videos", events: "Events", photos: "Photos", join: "Join" },
-        hero: {
-          title: "Throw sticks. Make friends. Repeat.",
-          blurb: "Budapest Kubb Klub is a casual, free-to-join kubb community in Budapest. We meet regularly in the Museum Garden (Múzeum körút, near Bródy Sándor utca). All levels welcome — we teach the rules in 5 minutes.",
-          ctaEvents: "See upcoming events",
-          ctaRules: "What is kubb?"
-        },
-        about: {
-          heading: "What’s kubb?",
-          p1: "Kubb is a friendly outdoor game from Sweden — imagine bowling, horseshoes, and strategy had a picnic. Two teams throw wooden batons to knock over blocks (kubbs) and finally the king.",
-          p2: "Our club is fun-first: social play, fresh air, and good company. If we get competitive later, awesome — for now, we just play.",
-          list: ["All ages & skill levels welcome","Free to join — we provide equipment","Drop in anytime, or bring friends"],
-          facts: { heading: "Quick facts", gameTime: "10–40 minutes", players: "2–12 (best: 4–6)", field: "~5×8 m (casual is flexible)", vibe: "Relaxed & welcoming" }
-        },
-        rules: {
-          heading: "Rules & helpful links",
-          intro: "Learn in minutes at a meetup, or explore the official rules below. For casual play we keep it simple — knock down the kubbs before the king, and have fun.",
-          steps: [
-            "Set up two baselines with five kubbs each and the king in the center.",
-            "Teams throw six batons from their baseline to knock over the opponent’s kubbs.",
-            "Fallen kubbs are thrown into the opponent’s half and stood up — these must be cleared first.",
-            "When all field/base kubbs are down, a team may knock over the king to win."
-          ],
-          official: "Official resources"
-        },
-        ruleLinks:["World Championship Rules (overview)","U.S. National Kubb Championship Rules (PDF)","Kubb World Championship – Rules page"],
-        videos: { heading: "Watch & learn", intro: "Two short clips that explain kubb quickly — great for newcomers." },
-        events: { heading: "Upcoming events" },
-        photos: { heading: "Photos", intro: "A peek at the vibe. Replace these with shots from your meetups." },
-        join: {
-          heading: "Join the Budapest Kubb Klub",
-          intro: "Drop in to an event, or follow us to get updates and photos. No fees, no commitment — just play.",
-          contact: "Contact",
-          contactSoon: "Contact coming soon! Follow us for updates.",
-          faq: "FAQ",
-          whatsapp: "Join our WhatsApp group",
-          faqItems:[
-            {q:"Do I need to bring anything?",a:"Nope — we provide kubb sets. Water and a snack are nice."},
-            {q:"Can kids join?",a:"Yes! We adjust distances for younger players."},
-            {q:"Never played?",a:"Perfect. We explain and get you playing in minutes."}
-          ]
-        },
-        footer:{about:"About", events:"Events", join:"Join"},
-        gallery:{alt0:"Sunny park meetup", alt1:"Friends laughing while playing", alt2:"Casual tournament vibe"}
-      },
       hu: {
         nav: { about: "Bemutatkozás", rules: "Szabályok", videos: "Videók", events: "Események", photos: "Képek", join: "Csatlakozz" },
         hero: {
@@ -268,7 +222,7 @@
           p1: "A kubb egy barátságos, svéd eredetű szabadtéri játék — kicsit bowling, kicsit patkódobás, egy kis stratégia. Két csapat dob fábotokat, ledönti a kubbokat, végül a királyt.",
           p2: "Nálunk a jó hangulat az első: friss levegő, közösség, játék. Ha később versenyezünk is, az szuper — most egyelőre csak játszunk.",
           list: ["Minden korosztály és szint","Ingyenes — a felszerelést mi adjuk","Bármikor be lehet csatlakozni"],
-          facts: { heading: "Gyors tények", gameTime: "10–40 perc", players: "2–12 (ideális: 4–6)", field: "~5×8 m (rugalmas, baráti játékhoz)", vibe: "Laza és befogadó" }
+          facts: { heading: "Gyors tények", gameTime: "10–40 perc", players: "2–12 (ideális: 4–6)", field: "5m × 8m", vibe: "Laza és befogadó" }
         },
         rules: {
           heading: "Szabályok & hasznos linkek",
@@ -281,10 +235,10 @@
           ],
           official: "Hivatalos források"
         },
-        ruleLinks:["Világbajnokság szabályai (áttekintés)","Amerikai Kubb Bajnokság szabályai (PDF)","Kubb VB – Szabályok"],
+        ruleLinks:["Egyszerűsített szabályok","Kubb VB – Szabályok"],
         videos: { heading: "Nézd meg röviden", intro: "Két rövid videó, kezdőknek is szuper." },
         events: { heading: "Közelgő események" },
-        photos: { heading: "Képek", intro: "Hangulatképek — cseréld saját fotókra." },
+        photos: { heading: "Képek", intro: "Hangulatképek" },
         join: {
           heading: "Csatlakozz a Budapest Kubb Klubhoz",
           intro: "Gyere el egy eseményre, vagy kövess minket frissítésekért. Nincs tagsági díj, nincs kötelezettség — csak játék.",
@@ -294,58 +248,12 @@
           whatsapp: "Csatlakozz a WhatsApp csoporthoz",
           faqItems:[
             {q:"Kell hozni valamit?",a:"Nem — a készleteket mi biztosítjuk. Víz és egy nasi jól jön."},
-            {q:"Gyerekek jöhetnek?",a:"Igen! A távolságokat igazítjuk."},
+            {q:"Gyerekek jöhetnek?",a:"A játék 10 éves kor felett ajánlott."},
             {q:"Még sosem játszottam.",a:"Szuper! Pár perc és már játszol is."}
           ]
         },
         footer:{about:"Rólunk", events:"Események", join:"Csatlakozz"},
         gallery:{alt0:"Napos parkbeli találkozó", alt1:"Barátok nevetnek játék közben", alt2:"Kötetlen, versenyes hangulat"}
-      },
-      sv: {
-        nav: { about: "Om oss", rules: "Regler", videos: "Videor", events: "Evenemang", photos: "Bilder", join: "Gå med" },
-        hero: {
-          title: "Kasta pinnar. Få vänner. Upprepa.",
-          blurb: "Budapest Kubb Klub är en avslappnad, gratis kubb-gemenskap i Budapest. Vi träffas regelbundet i Múzeumkertet (Múzeum körút, nära Bródy Sándor utca). Alla nivåer välkomna — vi lär ut reglerna på 5 minuter.",
-          ctaEvents: "Kommande evenemang",
-          ctaRules: "Vad är kubb?"
-        },
-        about: {
-          heading: "Vad är kubb?",
-          p1: "Kubb är ett vänligt utomhusspel från Sverige — som bowling, hästskokastning och strategi på picknick. Två lag kastar träklubbor för att fälla kubbar och till slut kungen.",
-          p2: "Vår klubb är kul först: socialt spel, frisk luft och gott sällskap. Blir vi tävlingsinriktade senare, toppen — nu spelar vi bara.",
-          list: ["Alla åldrar & nivåer","Gratis att delta — vi har utrustningen","Drop-in eller ta med vänner"],
-          facts: { heading: "Snabbfakta", gameTime: "10–40 minuter", players: "2–12 (bäst: 4–6)", field: "~5×8 m (flexibelt)", vibe: "Avslappnat & välkomnande" }
-        },
-        rules: {
-          heading: "Regler & nyttiga länkar",
-          intro: "Lär dig på några minuter på en träff, eller läs de officiella reglerna nedan. För vänskapligt spel håller vi det enkelt — fäll kubbarna innan kungen, och ha kul.",
-          steps: [
-            "Ställ upp två baslinjer med fem kubbar vardera och kungen i mitten.",
-            "Lagen kastar sex klubbor från sin baslinje för att fälla motståndarens kubbar.",
-            "Fällda kubbar kastas in på motståndarens planhalva och ställs upp — de måste bort först.",
-            "När alla fält-/baskubbar är nere får laget fälla kungen för vinst."
-          ],
-          official: "Officiella resurser"
-        },
-        ruleLinks:["Världsmästerskapets regler (översikt)","USA:s nationella Kubb-regler (PDF)","Kubb VM – Regler"],
-        videos: { heading: "Titta & lär", intro: "Två korta klipp som förklarar kubb – perfekt för nya." },
-        events: { heading: "Kommande evenemang" },
-        photos: { heading: "Bilder", intro: "En känsla för stämningen. Byt gärna till egna foton." },
-        join: {
-          heading: "Gå med i Budapest Kubb Klub",
-          intro: "Kom förbi ett event, eller följ oss för uppdateringar och bilder. Inga avgifter, inget krav — bara spel.",
-          contact: "Kontakt",
-          contactSoon: "Kontakt kommer snart! Följ oss för uppdateringar.",
-          faq: "FAQ",
-          whatsapp: "Gå med i vår WhatsApp-grupp",
-          faqItems:[
-            {q:"Behöver jag ta med något?",a:"Nej — vi har kubbset. Vatten och ett snack är trevligt."},
-            {q:"Kan barn vara med?",a:"Ja! Vi anpassar avstånden."},
-            {q:"Aldrig spelat?",a:"Perfekt. Vi förklarar och du spelar på några minuter."}
-          ]
-        },
-        footer:{about:"Om oss", events:"Evenemang", join:"Gå med"},
-        gallery:{alt0:"Soligt parkmöte", alt1:"Vänner skrattar medan de spelar", alt2:"Avslappnad turneringskänsla"}
       }
     };
 
