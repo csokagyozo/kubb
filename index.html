@@ -13,7 +13,6 @@
   <!-- Tailwind via CDN (single-file, no build step) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    /* misc tweaks for nicer look without plugins */
     .card{box-shadow:0 1px 2px rgba(0,0,0,.04),0 4px 12px rgba(0,0,0,.06)}
   </style>
 </head>
@@ -21,17 +20,19 @@
   <a id="top"></a>
   <header class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200">
     <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-3">
-      <div class="font-bold text-xl">Budapest Kubb Klub</div>
+      <div class="font-bold text-xl" data-t="site.name">Budapest Kubb Klub</div>
       <nav class="hidden md:flex gap-6 text-sm">
-        <a href="#about" data-i18n="nav.about" class="hover:text-slate-900">Bemutatkozás</a>
-        <a href="#events" data-i18n="nav.events" class="hover:text-slate-900">Események</a>
-        <a href="#rules" data-i18n="nav.rules" class="hover:text-slate-900">Szabályok</a>
-        <a href="#videos" data-i18n="nav.videos" class="hover:text-slate-900">Videók</a>
-        <a href="#gallery" data-i18n="nav.photos" class="hover:text-slate-900">Képek</a>
-        <a href="#join" data-i18n="nav.join" class="hover:text-slate-900">Csatlakozz</a>
+        <a href="#about" class="hover:text-slate-900" data-t="nav.about">Bemutatkozás</a>
+        <a href="#events" class="hover:text-slate-900" data-t="nav.events">Események</a>
+        <a href="#rules" class="hover:text-slate-900" data-t="nav.rules">Szabályok</a>
+        <a href="#videos" class="hover:text-slate-900" data-t="nav.videos">Videók</a>
+        <a href="#gallery" class="hover:text-slate-900" data-t="nav.photos">Képek</a>
+        <a href="#join" class="hover:text-slate-900" data-t="nav.join">Csatlakozz</a>
       </nav>
       <div class="flex items-center gap-1 rounded-xl border bg-white p-1" aria-label="Language selector">
-       <!-- <button data-lang="hu" class="px-3 py-1 text-sm rounded-lg bg-slate-900 text-white">HU</button>> -->
+        <button data-lang="hu" class="px-3 py-1 text-sm rounded-lg">HU</button>
+        <button data-lang="en" class="px-3 py-1 text-sm rounded-lg">EN</button>
+        <button data-lang="sv" class="px-3 py-1 text-sm rounded-lg">SV</button>
       </div>
     </div>
   </header>
@@ -41,16 +42,16 @@
     <section class="max-w-6xl mx-auto px-4 pt-12 pb-10 md:pt-16">
       <div class="grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight" data-i18n="hero.title">Szeretünk kubbozni.</h1>
-          <p class="mt-4 text-lg text-slate-600" data-i18n="hero.blurb">A Budapest Kubb Klub egy kötetlen, ingyenes kubb közösség Budapesten. Rendszeresen találkozunk parkokban (Múzeumkert, Margitsziget, Bikás park). Várunk haladókat és kezdőket — a szabályokat 5 perc alatt elmagyarázzuk.</p>
+          <h1 class="text-4xl md:text-5xl font-extrabold leading-tight" data-t="hero.title">Szeretünk kubbozni.</h1>
+          <p class="mt-4 text-lg text-slate-600" data-t="hero.blurb">A Budapest Kubb Klub egy kötetlen, ingyenes kubb közösség Budapesten. Rendszeresen találkozunk parkokban (Múzeumkert, Margitsziget, Bikás park). Várunk haladókat és kezdőket — a szabályokat 5 perc alatt elmagyarázzuk.</p>
           <div class="mt-6 flex flex-wrap gap-3">
-            <a href="#events" class="px-5 py-3 rounded-2xl card bg-slate-900 text-white font-semibold hover:opacity-90" data-i18n="hero.ctaEvents">Közelgő események</a>
-            <a href="#rules" class="px-5 py-3 rounded-2xl card bg-white border font-semibold hover:bg-slate-50" data-i18n="hero.ctaRules">Mi az a kubb?</a>
+            <a href="#events" class="px-5 py-3 rounded-2xl card bg-slate-900 text-white font-semibold hover:opacity-90" data-t="hero.ctaEvents">Közelgő események</a>
+            <a href="#rules" class="px-5 py-3 rounded-2xl card bg-white border font-semibold hover:bg-slate-50" data-t="hero.ctaRules">Mi az a kubb?</a>
           </div>
         </div>
         <div class="relative">
           <div class="aspect-video rounded-2xl overflow-hidden card">
-            <img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1600&auto=format&fit=crop" alt="Parkban játszó emberek" class="w-full h-full object-cover" />
+            <img data-asset="heroImg" alt="" class="w-full h-full object-cover"/>
           </div>
         </div>
       </div>
@@ -60,7 +61,7 @@
     <section id="events" class="bg-white border-y">
       <div class="max-w-6xl mx-auto px-4 py-12">
         <div class="flex items-end justify-between gap-4 flex-wrap">
-          <h2 class="text-3xl font-bold" data-i18n="events.heading">Közelgő események</h2>
+          <h2 class="text-3xl font-bold" data-t="events.heading">Közelgő események</h2>
         </div>
         <div class="mt-6 grid md:grid-cols-3 gap-6" id="events-container"></div>
       </div>
@@ -70,29 +71,25 @@
     <section id="about" class="max-w-6xl mx-auto px-4 py-12">
       <div class="grid md:grid-cols-2 gap-10 items-start">
         <div>
-          <h2 class="text-3xl font-bold" data-i18n="about.heading">Mi a kubb?</h2>
-          <p class="mt-4 text-slate-700" data-i18n="about.p1">A kubb egy svéd eredetű szabadtéri ügyességi játék. Két csapat dob fabotokat, ledönti a kubbokat, végül a királyt.</p>
-          <p class="mt-3 text-slate-700" data-i18n="about.p2">Nálunk a jó hangulat az első: friss levegő, közösség, játék. Ha később versenyezünk is, az szuper — most egyelőre csak játszunk.</p>
-          <ul class="mt-4 list-disc pl-5 text-slate-700 space-y-2">
-            <li data-i18n="about.list.0">Minden korosztály és szint</li>
-            <li data-i18n="about.list.1">Ingyenes — a felszerelést mi adjuk</li>
-            <li data-i18n="about.list.2">Bármikor be lehet csatlakozni</li>
-          </ul>
+          <h2 class="text-3xl font-bold" data-t="about.heading">Mi a kubb?</h2>
+          <p class="mt-4 text-slate-700" data-t="about.p1">A kubb egy svéd eredetű szabadtéri ügyességi játék. Két csapat dob fabotokat, ledönti a kubbokat, végül a királyt.</p>
+          <p class="mt-3 text-slate-700" data-t="about.p2">Nálunk a jó hangulat az első: friss levegő, közösség, játék. Ha később versenyezünk is, az szuper — most egyelőre csak játszunk.</p>
+          <ul class="mt-4 list-disc pl-5 text-slate-700 space-y-2" id="about-list"></ul>
         </div>
         <div class="bg-white border rounded-2xl p-6 card">
-          <h3 class="text-xl font-semibold" data-i18n="about.facts.heading">Gyors tények</h3>
+          <h3 class="text-xl font-semibold" data-t="about.facts.heading">Gyors tények</h3>
           <dl class="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-4 text-sm">
             <div>
-              <dt class="text-slate-500">Játékidő</dt>
-              <dd class="font-medium" data-i18n="about.facts.gameTime">10–40 perc</dd>
+              <dt class="text-slate-500" data-t="about.facts.labels.gameTime">Játékidő</dt>
+              <dd class="font-medium" data-t="about.facts.gameTime">10–40 perc</dd>
             </div>
             <div>
-              <dt class="text-slate-500">Játékosok</dt>
-              <dd class="font-medium" data-i18n="about.facts.players">2–12 (ideális: 4–6)</dd>
+              <dt class="text-slate-500" data-t="about.facts.labels.players">Játékosok</dt>
+              <dd class="font-medium" data-t="about.facts.players">2–12 (ideális: 4–6)</dd>
             </div>
             <div>
-              <dt class="text-slate-500">Pálya</dt>
-              <dd class="font-medium" data-i18n="about.facts.field">5m × 8m</dd>
+              <dt class="text-slate-500" data-t="about.facts.labels.field">Pálya</dt>
+              <dd class="font-medium" data-t="about.facts.field">5m × 8m</dd>
             </div>
           </dl>
         </div>
@@ -102,21 +99,13 @@
     <!-- Rules -->
     <section id="rules" class="bg-white border-y">
       <div class="max-w-6xl mx-auto px-4 py-12">
-        <h2 class="text-3xl font-bold" data-i18n="rules.heading">Szabályok &amp; hasznos linkek</h2>
-        <p class="mt-3 text-slate-700 max-w-3xl" data-i18n="rules.intro">Találkozón 5 perc alatt megtanulod, de lentebb hivatalos forrásokat is találsz. Baráti játékban egyszerűen: ledöntöd a kubbokat, majd a királyt — és élvezed.</p>
+        <h2 class="text-3xl font-bold" data-t="rules.heading">Szabályok &amp; hasznos linkek</h2>
+        <p class="mt-3 text-slate-700 max-w-3xl" data-t="rules.intro">Találkozón 5 perc alatt megtanulod, de lentebb hivatalos forrásokat is találsz. Baráti játékban egyszerűen: ledöntöd a kubbokat, majd a királyt — és élvezed.</p>
         <div class="mt-6 grid md:grid-cols-2 gap-6">
-          <ol class="bg-slate-50 rounded-2xl p-6 space-y-3 text-slate-700">
-            <li><strong>1)</strong> <span data-i18n="rules.steps.0">Két alapvonalon 5–5 kubb, középen a király.</span></li>
-            <li><strong>2)</strong> <span data-i18n="rules.steps.1">A csapatok hat bottal dobnak az alapvonalról, cél a másik kubbjainak ledöntése.</span></li>
-            <li><strong>3)</strong> <span data-i18n="rules.steps.2">A ledőlt kubbokat az ellenfél térfelébe dobjuk és felállítjuk — ezeket kell először kiütni.</span></li>
-            <li><strong>4)</strong> <span data-i18n="rules.steps.3">Ha minden kubb lent van, jöhet a király — aki ledönti, nyer.</span></li>
-          </ol>
+          <ol class="bg-slate-50 rounded-2xl p-6 space-y-3 text-slate-700" id="rules-steps"></ol>
           <div class="bg-slate-50 rounded-2xl p-6">
-            <h3 class="font-semibold" data-i18n="rules.official">Hivatalos források</h3>
-            <ul class="mt-3 space-y-2">
-              <li><a class="underline underline-offset-4" href="https://kubbjatek.hu/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.0">Kubb szabályai</a></li>
-              <li><a class="underline underline-offset-4" href="https://www.kubbvm.com/en/about-the-kubb-world-championship/rules-in-the-wc/" target="_blank" rel="noreferrer" data-i18n="ruleLinks.1">Kubb VB – Szabályok</a></li>
-            </ul>
+            <h3 class="font-semibold" data-t="rules.official">Hivatalos források</h3>
+            <ul class="mt-3 space-y-2" id="rule-links"></ul>
           </div>
         </div>
       </div>
@@ -124,53 +113,31 @@
 
     <!-- Videos -->
     <section id="videos" class="max-w-6xl mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold" data-i18n="videos.heading">Nézd meg röviden</h2>
-      <p class="mt-3 text-slate-700" data-i18n="videos.intro">Két rövid videó, egy a szabályokról, egy meg a vb-döntőről.</p>
-      <div class="mt-6 grid md:grid-cols-2 gap-6">
-        <div class="aspect-video rounded-2xl overflow-hidden card bg-black">
-          <iframe class="w-full h-full" src="https://www.youtube.com/embed/XfWt0-_MNsY" title="How to Play Kubb – Kubb United" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-        <div class="aspect-video rounded-2xl overflow-hidden card bg-black">
-          <iframe class="w-full h-full" src="https://www.youtube.com/watch?v=Bofhj1sROxE" title="Kubb World Championship finals" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
-      </div>
+      <h2 class="text-3xl font-bold" data-t="videos.heading">Nézd meg röviden</h2>
+      <p class="mt-3 text-slate-700" data-t="videos.intro">Két rövid videó, egy a szabályokról, egy meg a vb-döntőről.</p>
+      <div class="mt-6 grid md:grid-cols-2 gap-6" id="video-wrap"></div>
     </section>
 
     <!-- Gallery -->
     <section id="gallery" class="max-w-6xl mx-auto px-4 py-12">
-      <h2 class="text-3xl font-bold" data-i18n="photos.heading">Képek</h2>
-      <p class="mt-3 text-slate-700" data-i18n="photos.intro">Hangulatképek — hamarosan.</p>
-      <div class="mt-6 grid md:grid-cols-3 gap-6">
-        <figure class="rounded-2xl overflow-hidden card"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Kubb_game_setup.svg/1920px-Kubb_game_setup.svg.png" alt="Napos parkbeli találkozó" data-i18n-attr="alt:gallery.alt0" class="w-full h-60 object-cover"/></figure>
-        <figure class="rounded-2xl overflow-hidden card"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop" alt="Barátok nevetnek játék közben" data-i18n-attr="alt:gallery.alt1" class="w-full h-60 object-cover"/></figure>
-        <figure class="rounded-2xl overflow-hidden card"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop" alt="Kötetlen, versenyes hangulat" data-i18n-attr="alt:gallery.alt2" class="w-full h-60 object-cover"/></figure>
-      </div>
+      <h2 class="text-3xl font-bold" data-t="photos.heading">Képek</h2>
+      <p class="mt-3 text-slate-700" data-t="photos.intro">Hangulatképek — hamarosan.</p>
+      <div class="mt-6 grid md:grid-cols-3 gap-6" id="gallery-wrap"></div>
     </section>
 
     <!-- Join -->
     <section id="join" class="bg-slate-900 text-white">
       <div class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-2 gap-8 items-center">
         <div>
-          <h2 class="text-3xl font-bold" data-i18n="join.heading">Csatlakozz a Budapest Kubb Klubhoz</h2>
-          <p class="mt-3 text-slate-200" data-i18n="join.intro">Gyere el egy eseményre, vagy kövess minket frissítésekért. Nincs tagsági díj, nincs kötelezettség — csak játék.</p>
-          <ul class="mt-6 grid grid-cols-2 gap-3 max-w-md" id="socials">
-            <!-- Social buttons auto-hide if empty (handled in JS) -->
-            <li><a class="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href="https://www.facebook.com/people/Budapest-Kubb-Klub/61578973092964/" data-social="facebook">Facebook</a></li>
-            <li><a class="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href="" data-social="instagram">Instagram</a></li>
-            <li><a class="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href="" data-social="tiktok">TikTok</a></li>
-            <li><a class="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href="" data-social="meetup">Meetup</a></li>
-            <li class="col-span-2"><a class="block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center" href="" data-social="whatsapp" data-i18n="join.whatsapp">Csatlakozz a WhatsApp csoporthoz</a></li>
-          </ul>
+          <h2 class="text-3xl font-bold" data-t="join.heading">Csatlakozz a Budapest Kubb Klubhoz</h2>
+          <p class="mt-3 text-slate-200" data-t="join.intro">Gyere el egy eseményre, vagy kövess minket frissítésekért. Nincs tagsági díj, nincs kötelezettség — csak játék.</p>
+          <ul class="mt-6 grid grid-cols-2 gap-3 max-w-md" id="socials"></ul>
         </div>
         <div class="bg-white/10 rounded-2xl p-6">
-          <h3 class="font-semibold" data-i18n="join.contact">Kapcsolat</h3>
-          <p class="mt-2 text-slate-200 text-sm" data-i18n="join.contactEmail">budapestkubb kukac gmail pont com</p>
-          <h3 class="mt-6 font-semibold" data-i18n="join.faq">GYIK</h3>
-          <ul class="mt-2 text-sm text-slate-200 space-y-2">
-            <li><strong data-i18n="join.faqItems.0.q">Kell hozni valamit?</strong> <span data-i18n="join.faqItems.0.a">Nem — a készleteket mi biztosítjuk. Víz és egy kis nasi jól jön.</span></li>
-            <li><strong data-i18n="join.faqItems.1.q">Gyerekek jöhetnek?</strong> <span data-i18n="join.faqItems.1.a">A játék 10 éves kor felett ajánlott.</span></li>
-            <li><strong data-i18n="join.faqItems.2.q">Még sosem játszottam.</strong> <span data-i18n="join.faqItems.2.a">Szuper! Pár perc és már játszol is.</span></li>
-          </ul>
+          <h3 class="font-semibold" data-t="join.contact">Kapcsolat</h3>
+          <p class="mt-2 text-slate-200 text-sm" data-t="join.contactEmail">budapestkubb kukac gmail pont com</p>
+          <h3 class="mt-6 font-semibold" data-t="join.faq">GYIK</h3>
+          <ul class="mt-2 text-sm text-slate-200 space-y-2" id="faq-list"></ul>
         </div>
       </div>
     </section>
@@ -178,146 +145,361 @@
 
   <footer class="border-t bg-white">
     <div class="max-w-6xl mx-auto px-4 py-8 text-sm text-slate-600 flex flex-col md:flex-row gap-3 md:items-center md:justify-between">
-      <p>© <span id="year"></span> Budapest Kubb Klub</p>
+      <p>© <span id="year"></span> <span data-t="site.name">Budapest Kubb Klub</span></p>
       <div class="flex gap-4">
-        <a href="#about" class="hover:text-slate-900" data-i18n="footer.about">Rólunk</a>
-        <a href="#events" class="hover:text-slate-900" data-i18n="footer.events">Események</a>
-        <a href="#join" class="hover:text-slate-900" data-i18n="footer.join">Csatlakozz</a>
+        <a href="#about" class="hover:text-slate-900" data-t="footer.about">Rólunk</a>
+        <a href="#events" class="hover:text-slate-900" data-t="footer.events">Események</a>
+        <a href="#join" class="hover:text-slate-900" data-t="footer.join">Csatlakozz</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // ===== Data =====
-    const EVENTS = [
-      {
-        title: { hu: "Indító Játéknap | Lanseringsdag"},
-        date:  { hu: "Augusztus 8., péntek, 16:00"},
-        location: "Múzeumkert (Múzeum körút, Bródy Sándor utca közelében)",
-        map: "https://maps.google.com/?q=Magyar%20Nemzeti%20M%C3%BAzeum%2C%20M%C3%BAzeum%20k%C3%B6r%C3%BAt%2C%20Budapest",
-        blurb: {
-          en: "Open session for all levels. We teach rules in 5 minutes. Free and friendly!",
-          hu: "Nyílt alkalom minden szintnek. A szabályokat 5 perc alatt elmagyarázzuk. Ingyenes és barátságos!",
-          sv: "Öppen träff för alla nivåer. Reglerna på 5 minuter. Gratis och välkomnande!",
-        },
-        rsvp: ""
-      }
-    ];
+    // ===== Content (single source of truth: links, media, ids) =====
+    const CONTENT = {
+      assets: {
+        heroImg: 'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1600&auto=format&fit=crop',
+        gallery: [
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Kubb_game_setup.svg/1920px-Kubb_game_setup.svg.png',
+          'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop',
+          'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1200&auto=format&fit=crop'
+        ]
+      },
+      ruleLinks: [
+        { id: 'rulesSimple', url: 'https://kubbjatek.hu/' },
+        { id: 'rulesWC', url: 'https://www.kubbvm.com/en/about-the-kubb-world-championship/rules-in-the-wc/' }
+      ],
+      videos: [
+        { id: 'howto', youtube: 'XfWt0-_MNsY', title: { en:'How to Play Kubb – Kubb United', hu:'Hogyan játssz kubbot', sv:'Så spelar du Kubb' } },
+        { id: 'finals', youtube: 'Bofhj1sROxE', title: { en:'Kubb World Championship finals', hu:'Kubb VB döntő', sv:'Kubb-VM final' } }
+      ],
+      socials: {
+        facebook: 'https://www.facebook.com/people/Budapest-Kubb-Klub/61578973092964/',
+        instagram: '',
+        tiktok: '',
+        meetup: '',
+        whatsapp: ''
+      },
+      // Event objects contain only non-translatable fields here; text lives in I18N.eventsById
+      events: [
+        {
+          id: 'launchday',
+          location: 'Múzeumkert (Múzeum körút, Bródy Sándor utca közelében)',
+          map: 'https://maps.google.com/?q=Magyar%20Nemzeti%20M%C3%BAzeum%2C%20M%C3%BAzeum%20k%C3%B6r%C3%BAt%2C%20Budapest',
+          rsvp: ''
+        }
+      ]
+    };
 
+    // ===== Translations (texts only; keep keys stable across languages) =====
     const I18N = {
       hu: {
-        nav: { about: "Bemutatkozás", rules: "Szabályok", videos: "Videók", events: "Események", photos: "Képek", join: "Csatlakozz" },
+        site: { name: 'Budapest Kubb Klub' },
+        nav: { about: 'Bemutatkozás', rules: 'Szabályok', videos: 'Videók', events: 'Események', photos: 'Képek', join: 'Csatlakozz' },
         hero: {
-          title: "Szeretünk kubbozni.",
-          blurb: "A Budapest Kubb Klub egy kötetlen, ingyenes kubb közösség Budapesten. Rendszeresen találkozunk parkokban (Múzeumkert, Margitsziget, Bikás park). Várunk haladókat és kezdőket — a szabályokat 5 perc alatt elmagyarázzuk.",
-          ctaEvents: "Közelgő események",
-          ctaRules: "Mi az a kubb?"
+          title: 'Szeretünk kubbozni.',
+          blurb: 'A Budapest Kubb Klub egy kötetlen, ingyenes kubb közösség Budapesten. Rendszeresen találkozunk parkokban (Múzeumkert, Margitsziget, Bikás park). Várunk haladókat és kezdőket — a szabályokat 5 perc alatt elmagyarázzuk.',
+          ctaEvents: 'Közelgő események',
+          ctaRules: 'Mi az a kubb?'
         },
         about: {
-          heading: "Mi a kubb?",
-          p1: "A kubb egy svéd eredetű szabadtéri ügyességi játék. Két csapat dob fabotokat, ledönti a kubbokat, végül a királyt.",
-          p2: "Nálunk a jó hangulat az első: friss levegő, közösség, játék. Ha később versenyezünk is, az szuper — most egyelőre csak játszunk.",
-          list: ["Minden korosztály és szint","Ingyenes — a felszerelést mi adjuk","Bármikor be lehet csatlakozni"],
-          facts: { heading: "Gyors tények", gameTime: "10–40 perc", players: "2–12 (ideális: 4–6)", field: "5m × 8m", vibe: "Laza és befogadó" }
+          heading: 'Mi a kubb?',
+          p1: 'A kubb egy svéd eredetű szabadtéri ügyességi játék. Két csapat dob fabotokat, ledönti a kubbokat, végül a királyt.',
+          p2: 'Nálunk a jó hangulat az első: friss levegő, közösség, játék. Ha később versenyezünk is, az szuper — most egyelőre csak játszunk.',
+          list: ['Minden korosztály és szint','Ingyenes — a felszerelést mi adjuk','Bármikor be lehet csatlakozni'],
+          facts: {
+            heading: 'Gyors tények',
+            labels: { gameTime: 'Játékidő', players: 'Játékosok', field: 'Pálya' },
+            gameTime: '10–40 perc', players: '2–12 (ideális: 4–6)', field: '5m × 8m'
+          }
         },
         rules: {
-          heading: "Szabályok & hasznos linkek",
-          intro: "Találkozón 5 perc alatt megtanulod, de lentebb hivatalos forrásokat is találsz. Baráti játékban egyszerűen: ledöntöd a kubbokat, majd a királyt — és élvezed.",
+          heading: 'Szabályok & hasznos linkek',
+          intro: 'Találkozón 5 perc alatt megtanulod, de lentebb hivatalos forrásokat is találsz. Baráti játékban egyszerűen: ledöntöd a kubbokat, majd a királyt — és élvezed.',
           steps: [
-            "Két alapvonalon 5–5 kubb, középen a király.",
-            "A csapatok hat bottal dobnak az alapvonalról, cél a másik kubbjainak ledöntése.",
-            "A ledőlt kubbokat az ellenfél térfelébe dobjuk és felállítjuk — ezeket kell először kiütni.",
-            "Ha minden kubb lent, jöhet a király — aki ledönti, nyer."
+            'Két alapvonalon 5–5 kubb, középen a király.',
+            'A csapatok hat bottal dobnak az alapvonalról, cél a másik kubbjainak ledöntése.',
+            'A ledőlt kubbokat az ellenfél térfelébe dobjuk és felállítjuk — ezeket kell először kiütni.',
+            'Ha minden kubb lent van, jöhet a király — aki ledönti, nyer.'
           ],
-          official: "Hivatalos források"
+          official: 'Hivatalos források'
         },
-        ruleLinks:["Egyszerűsített szabályok","Kubb VB – Szabályok"],
-        videos: { heading: "Nézd meg röviden", intro: "Két rövid videó, kezdőknek is szuper." },
-        events: { heading: "Közelgő események" },
-        photos: { heading: "Képek", intro: "Hangulatképek" },
+        ruleLinkLabels: {
+          rulesSimple: 'Egyszerűsített szabályok',
+          rulesWC: 'Kubb VB – Szabályok'
+        },
+        videos: { heading: 'Nézd meg röviden', intro: 'Két rövid videó, kezdőknek is szuper.' },
+        events: { heading: 'Közelgő események' },
+        photos: { heading: 'Képek', intro: 'Hangulatképek' },
         join: {
-          heading: "Csatlakozz a Budapest Kubb Klubhoz",
-          intro: "Gyere el egy eseményre, vagy kövess minket frissítésekért. Nincs tagsági díj, nincs kötelezettség — csak játék.",
-          contact: "Kapcsolat",
-          contactEmail: "budapestkubb kukac gmail pont com",
-          faq: "GYIK",
-          whatsapp: "Csatlakozz a WhatsApp csoporthoz",
+          heading: 'Csatlakozz a Budapest Kubb Klubhoz',
+          intro: 'Gyere el egy eseményre, vagy kövess minket frissítésekért. Nincs tagsági díj, nincs kötelezettség — csak játék.',
+          contact: 'Kapcsolat',
+          contactEmail: 'budapestkubb kukac gmail pont com',
+          faq: 'GYIK',
+          socials: { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', meetup: 'Meetup', whatsapp: 'Csatlakozz a WhatsApp csoporthoz' },
           faqItems:[
-            {q:"Kell hozni valamit?",a:"Nem — a készleteket mi biztosítjuk. Víz és egy kis nasi jól jön."},
-            {q:"Gyerekek jöhetnek?",a:"A játék 10 éves kor felett ajánlott."},
-            {q:"Még sosem játszottam.",a:"Szuper! Pár perc és már játszol is."}
+            {q:'Kell hozni valamit?',a:'Nem — a készleteket mi biztosítjuk. Víz és egy kis nasi jól jön.'},
+            {q:'Gyerekek jöhetnek?',a:'A játék 10 éves kor felett ajánlott.'},
+            {q:'Még sosem játszottam.',a:'Szuper! Pár perc és már játszol is.'}
           ]
         },
-        footer:{about:"Rólunk", events:"Események", join:"Csatlakozz"},
-        gallery:{alt0:"Napos parkbeli találkozó", alt1:"Barátok nevetnek játék közben", alt2:"Kötetlen, versenyes hangulat"}
+        footer:{about:'Rólunk', events:'Események', join:'Csatlakozz'},
+        gallery:{ alt0:'Napos parkbeli találkozó', alt1:'Barátok nevetnek játék közben', alt2:'Kötetlen, versenyes hangulat' },
+        // Per-event translations by id
+        eventsById: {
+          launchday: {
+            title: 'Indító Játéknap',
+            date: 'Augusztus 8., péntek, 16:00',
+            blurb: 'Nyílt alkalom minden szintnek. A szabályokat 5 perc alatt elmagyarázzuk. Ingyenes és barátságos!'
+          }
+        }
+      },
+
+      en: {
+        site: { name: 'Budapest Kubb Club' },
+        nav: { about: 'About', rules: 'Rules', videos: 'Videos', events: 'Events', photos: 'Photos', join: 'Join' },
+        hero: {
+          title: 'We love playing kubb.',
+          blurb: 'Budapest Kubb Club is a casual, free kubb community in Budapest. We meet regularly in parks (Múzeumkert, Margaret Island, Bikás park). Everyone welcome — we teach the rules in 5 minutes.',
+          ctaEvents: 'Upcoming events',
+          ctaRules: 'What is kubb?'
+        },
+        about: {
+          heading: 'What is kubb?',
+          p1: 'Kubb is an outdoor throwing game from Sweden. Two teams toss batons to knock down kubbs, then the king.',
+          p2: 'We value good vibes first: fresh air, community, play. Competing may come later — for now we just play.',
+          list: ['All ages and levels','Free — we provide the sets','Join anytime'],
+          facts: {
+            heading: 'Quick facts',
+            labels: { gameTime: 'Game time', players: 'Players', field: 'Field' },
+            gameTime: '10–40 min', players: '2–12 (ideal: 4–6)', field: '5m × 8m'
+          }
+        },
+        rules: {
+          heading: 'Rules & useful links',
+          intro: 'You can learn in 5 minutes at a session, but official sources are below. In friendly play: knock down kubbs, then the king — and enjoy.',
+          steps: [
+            'Five kubbs on each baseline, king in the middle.',
+            'Teams throw six batons from the baseline to topple opponent kubbs.',
+            'Toppled kubbs are thrown to the opponent half and stood up — these must be cleared first.',
+            'When all kubbs are down, go for the king — knock it down to win.'
+          ],
+          official: 'Official sources'
+        },
+        ruleLinkLabels: {
+          rulesSimple: 'Simplified rules',
+          rulesWC: 'World Championship rules'
+        },
+        videos: { heading: 'Watch quickly', intro: 'Two short videos: one on rules, one on a WC final.' },
+        events: { heading: 'Upcoming events' },
+        photos: { heading: 'Photos', intro: 'Vibes — coming soon.' },
+        join: {
+          heading: 'Join Budapest Kubb Club',
+          intro: 'Come to an event or follow us for updates. No fees, no obligations — just play.',
+          contact: 'Contact',
+          contactEmail: 'budapestkubb at gmail dot com',
+          faq: 'FAQ',
+          socials: { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', meetup: 'Meetup', whatsapp: 'Join the WhatsApp group' },
+          faqItems:[
+            {q:'Do I need to bring anything?',a:'No — we provide the sets. Water and a snack help.'},
+            {q:'Can kids join?',a:'Recommended from age 10.'},
+            {q:"I've never played.",a:'Perfect! You will be playing in minutes.'}
+          ]
+        },
+        footer:{about:'About', events:'Events', join:'Join'},
+        gallery:{ alt0:'Sunny meetup in a park', alt1:'Friends laughing while playing', alt2:'Casual, welcoming vibe' },
+        eventsById: {
+          launchday: {
+            title: 'Launch Day',
+            date: 'Friday, 8 August, 16:00',
+            blurb: 'Open session for all levels. We teach the rules in 5 minutes. Free and friendly!'
+          }
+        }
+      },
+
+      sv: {
+        site: { name: 'Budapest Kubbklubb' },
+        nav: { about: 'Om oss', rules: 'Regler', videos: 'Videor', events: 'Träffar', photos: 'Bilder', join: 'Gå med' },
+        hero: {
+          title: 'Vi älskar kubb.',
+          blurb: 'Budapest Kubbklubb är en avslappnad, gratis kubbgemenskap i Budapest. Vi ses regelbundet i parker (Múzeumkert, Margaretaön, Bikás park). Alla är välkomna — vi lär ut reglerna på 5 minuter.',
+          ctaEvents: 'Kommande träffar',
+          ctaRules: 'Vad är kubb?'
+        },
+        about: {
+          heading: 'Vad är kubb?',
+          p1: 'Kubb är ett svenskt utomhusspel. Två lag kastar kastpinnar, slår ner kubbar och till sist kungen.',
+          p2: 'Hos oss är stämningen viktigast: frisk luft, gemenskap, lek. Tävla kan vi göra senare — nu spelar vi bara.',
+          list: ['Alla åldrar och nivåer','Gratis — vi står för utrustningen','Kom när du vill'],
+          facts: {
+            heading: 'Snabbfakta',
+            labels: { gameTime: 'Speltid', players: 'Spelare', field: 'Plan' },
+            gameTime: '10–40 min', players: '2–12 (idealt: 4–6)', field: '5 m × 8 m'
+          }
+        },
+        rules: {
+          heading: 'Regler & nyttiga länkar',
+          intro: 'Du lär dig på 5 minuter på plats, men officiella källor finns nedan. I kompis-spelet: slå ner kubbar och sedan kungen — och ha kul.',
+          steps: [
+            'Fem kubbar på varje baslinje, kungen i mitten.',
+            'Lagen kastar sex kastpinnar från baslinjen för att slå ner motståndarens kubbar.',
+            'Nerslagna kubbar kastas till motståndarens planhalva och ställs upp — dessa ska tas först.',
+            'När alla kubbar är nere: gå på kungen — den som slår ner vinner.'
+          ],
+          official: 'Officiella källor'
+        },
+        ruleLinkLabels: {
+          rulesSimple: 'Förenklade regler',
+          rulesWC: 'VM-regler'
+        },
+        videos: { heading: 'Titta kort', intro: 'Två korta videor: en om reglerna, en från en VM-final.' },
+        events: { heading: 'Kommande träffar' },
+        photos: { heading: 'Bilder', intro: 'Stämningsbilder' },
+        join: {
+          heading: 'Gå med i Budapest Kubbklubb',
+          intro: 'Kom på en träff eller följ oss för uppdateringar. Inga avgifter, inga krav — bara spel.',
+          contact: 'Kontakt',
+          contactEmail: 'budapestkubb snabela gmail punkt com',
+          faq: 'Vanliga frågor',
+          socials: { facebook: 'Facebook', instagram: 'Instagram', tiktok: 'TikTok', meetup: 'Meetup', whatsapp: 'Gå med i WhatsApp-gruppen' },
+          faqItems:[
+            {q:'Behöver jag ta med något?',a:'Nej — vi står för utrustningen. Vatten och ett snacks är bra.'},
+            {q:'Kan barn vara med?',a:'Rekommenderas från 10 år.'},
+            {q:'Jag har aldrig spelat.',a:'Toppen! Du är igång på några minuter.'}
+          ]
+        },
+        footer:{about:'Om oss', events:'Träffar', join:'Gå med'},
+        gallery:{ alt0:'Solig träff i parken', alt1:'Vänner skrattar medan de spelar', alt2:'Avslappnad, välkomnande stämning' },
+        eventsById: {
+          launchday: {
+            title: 'Lanseringsdag',
+            date: 'Fredag 8 augusti kl. 16:00',
+            blurb: 'Öppen träff för alla nivåer. Reglerna på 5 minuter. Gratis och välkomnande!'
+          }
+        }
       }
     };
 
-    // ===== Helpers =====
+    // ===== Rendering helpers =====
+    function t(lang, path, fallbackLang='hu'){
+      const get = (obj, p) => p.split('.').reduce((o,k)=> (o&&o[k]!=null)?o[k]:undefined, obj);
+      return get(I18N[lang], path) ?? get(I18N[fallbackLang], path) ?? '';
+    }
+
     function setLang(lang){
       const dict = I18N[lang] || I18N.hu;
       document.documentElement.lang = lang;
-      // text nodes
-      document.querySelectorAll('[data-i18n]').forEach(el=>{
-        const path = el.getAttribute('data-i18n').split('.');
-        let cur = dict; for(const p of path){ if(cur) cur = cur[p]; }
-        if(typeof cur === 'string') el.textContent = cur;
+      // text content
+      document.querySelectorAll('[data-t]').forEach(el=>{
+        const key = el.getAttribute('data-t');
+        const val = t(lang, key);
+        if(typeof val === 'string') el.textContent = val;
       });
-      // attribute translations
-      document.querySelectorAll('[data-i18n-attr]').forEach(el=>{
-        const [attr,path] = el.getAttribute('data-i18n-attr').split(':');
-        let cur = dict; for(const p of path.split('.')){ if(cur) cur = cur[p]; }
-        if(typeof cur === 'string') el.setAttribute(attr, cur);
+      // assets
+      document.querySelectorAll('[data-asset]').forEach(el=>{
+        const key = el.getAttribute('data-asset');
+        if(key in CONTENT.assets){ el.src = CONTENT.assets[key]; }
       });
-      // events render
+      // about bullet list
+      const aboutList = document.getElementById('about-list');
+      aboutList.innerHTML = '';
+      (t(lang, 'about.list')||[]).forEach(item=>{
+        const li = document.createElement('li');
+        li.textContent = item; aboutList.appendChild(li);
+      });
+      // rules steps
+      const steps = document.getElementById('rules-steps');
+      steps.innerHTML = '';
+      (t(lang, 'rules.steps')||[]).forEach((s,i)=>{
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${i+1})</strong> <span>${s}</span>`; steps.appendChild(li);
+      });
+      // official rule links (labels from i18n, urls from CONTENT)
+      const rl = document.getElementById('rule-links');
+      rl.innerHTML='';
+      CONTENT.ruleLinks.forEach(({id,url})=>{
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.className='underline underline-offset-4'; a.target='_blank'; a.rel='noreferrer'; a.href=url;
+        a.textContent = t(lang, `ruleLinkLabels.${id}`);
+        li.appendChild(a); rl.appendChild(li);
+      });
+      // videos
+      const vw = document.getElementById('video-wrap');
+      vw.innerHTML='';
+      CONTENT.videos.forEach(v=>{
+        const wrap = document.createElement('div');
+        wrap.className = 'aspect-video rounded-2xl overflow-hidden card bg-black';
+        wrap.innerHTML = `<iframe class="w-full h-full" src="https://www.youtube.com/embed/${v.youtube}" title="${v.title?.[lang]||''}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        vw.appendChild(wrap);
+      });
+      // gallery (alts from i18n, images from CONTENT)
+      const gw = document.getElementById('gallery-wrap');
+      gw.innerHTML='';
+      CONTENT.assets.gallery.forEach((src, i)=>{
+        const fig = document.createElement('figure');
+        fig.className='rounded-2xl overflow-hidden card';
+        const img = document.createElement('img');
+        img.src = src; img.alt = t(lang, `gallery.alt${i}`);
+        img.className='w-full h-60 object-cover';
+        fig.appendChild(img); gw.appendChild(fig);
+      });
+      // socials (labels from i18n, hrefs from CONTENT; auto-hide empties)
+      const socials = document.getElementById('socials');
+      socials.innerHTML='';
+      Object.entries(CONTENT.socials).forEach(([id,href])=>{
+        if(!href) return; // hide empty
+        const li = document.createElement('li');
+        if(id==='whatsapp') li.className='col-span-2';
+        const a = document.createElement('a');
+        a.className='block px-5 py-3 rounded-2xl bg-white text-slate-900 font-semibold text-center';
+        a.href = href; a.textContent = t(lang, `join.socials.${id}`) || id;
+        li.appendChild(a); socials.appendChild(li);
+      });
+      // FAQ
+      const faq = document.getElementById('faq-list');
+      faq.innerHTML='';
+      (t(lang, 'join.faqItems')||[]).forEach(item=>{
+        const li = document.createElement('li');
+        li.innerHTML = `<strong>${item.q}</strong> <span>${item.a}</span>`; faq.appendChild(li);
+      });
+      // Events (texts from I18N.eventsById, shared fields from CONTENT.events)
       renderEvents(lang);
-      // button styles
+      // active lang button style
       document.querySelectorAll('[data-lang]').forEach(b=>{
         b.classList.toggle('bg-slate-900', b.dataset.lang===lang);
         b.classList.toggle('text-white', b.dataset.lang===lang);
         b.classList.toggle('hover:bg-slate-100', b.dataset.lang!==lang);
       });
+      // Replace site name occurrences
+      document.querySelectorAll('[data-t="site.name"]').forEach(el=>{ el.textContent = t(lang, 'site.name'); });
     }
 
     function renderEvents(lang){
       const wrap = document.getElementById('events-container');
       wrap.innerHTML = '';
-      EVENTS.forEach(e=>{
+      CONTENT.events.forEach(ev=>{
+        const tr = I18N[lang]?.eventsById?.[ev.id] || I18N.hu.eventsById[ev.id];
         const card = document.createElement('article');
         card.className = 'rounded-2xl border p-5 card bg-slate-50';
         card.innerHTML = `
-          <h3 class="font-semibold text-lg">${e.title[lang]}</h3>
-          <p class="mt-1 text-sm text-slate-600">${e.date[lang]}</p>
-          <p class="mt-1 text-sm text-slate-600">📍 ${e.location}</p>
-          <p class="mt-3 text-slate-700 text-sm">${e.blurb[lang]}</p>
+          <h3 class="font-semibold text-lg">${tr?.title||''}</h3>
+          <p class="mt-1 text-sm text-slate-600">${tr?.date||''}</p>
+          <p class="mt-1 text-sm text-slate-600">📍 ${ev.location}</p>
+          <p class="mt-3 text-slate-700 text-sm">${tr?.blurb||''}</p>
           <div class="mt-4 flex gap-3">
-            <a href="${e.map}" class="text-sm underline underline-offset-4" target="_blank" rel="noreferrer">Map</a>
-            ${e.rsvp ? `<a href="${e.rsvp}" class="text-sm underline underline-offset-4" target="_blank" rel="noreferrer">Details</a>` : ''}
+            <a href="${ev.map}" class="text-sm underline underline-offset-4" target="_blank" rel="noreferrer">Map</a>
+            ${ev.rsvp ? `<a href="${ev.rsvp}" class="text-sm underline underline-offset-4" target="_blank" rel="noreferrer">Details</a>` : ''}
           </div>`;
         wrap.appendChild(card);
       });
     }
 
-    function hydrateRuleLinkLabels(lang){
-      const labels = I18N[lang].ruleLinks;
-      document.querySelectorAll('#rules a[data-i18n^="ruleLinks"]').forEach((a,i)=>{
-        a.textContent = labels[i] || a.textContent;
-      });
-    }
-
-    // hide empty social links
-    function hideEmptySocials(){
-      document.querySelectorAll('#socials a[data-social]').forEach(a=>{ if(!a.getAttribute('href')) a.parentElement.style.display='none'; });
-    }
-
-    // init
+    // ===== Init =====
     document.getElementById('year').textContent = new Date().getFullYear();
-    hideEmptySocials();
-    // language switching
-    document.querySelectorAll('[data-lang]').forEach(b=> b.addEventListener('click', ()=>{ setLang(b.dataset.lang); hydrateRuleLinkLabels(b.dataset.lang); }));
-    // default language HU
+    document.querySelectorAll('[data-lang]').forEach(b=> b.addEventListener('click', ()=> setLang(b.dataset.lang)));
     setLang('hu');
-    hydrateRuleLinkLabels('hu');
   </script>
 </body>
 </html>
